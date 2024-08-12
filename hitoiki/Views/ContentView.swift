@@ -6,22 +6,39 @@
 //
 
 import SwiftUI
+import FirebaseAuth  // FirebaseAuth をインポートする
 
 struct ContentView: View {
     @State private var isLoggedIn = false
-    var authenticationManager = AuthenticationManager()
+    @State private var isLoading = true
+    
     var body: some View {
         VStack {
-            if authenticationManager.isSignIn == false {
-                // ログインしていないとき
-                LoginView(isLoggedIn: $isLoggedIn)
+            if isLoading {
+                ProgressView()
+                    .progressViewStyle(CircularProgressViewStyle())
+                    .onAppear(perform: checkAuthentication)
             } else {
-                // ログインしているとき
-                MainView()
+                if isLoggedIn {
+                    MainView()
+                } else {
+                    LoginView(isLoggedIn: $isLoggedIn)
+                }
             }
-            Spacer()
         }
-        .padding()
+    }
+    
+    private func checkAuthentication() {
+        Auth.auth().addStateDidChangeListener { auth, user in
+            if let user = user {
+                // ユーザーがログインしている場合
+                self.isLoggedIn = true
+            } else {
+                // ユーザーがログインしていない場合
+                self.isLoggedIn = false
+            }
+            self.isLoading = false
+        }
     }
 }
 
