@@ -6,10 +6,24 @@
 //
 
 import Foundation
+import FirebaseFirestoreSwift
 
-struct NewsItem: Identifiable {
-    let id = UUID()
-    let title: String
-    let description: String
-    let date: Date
+struct NewsItem: Identifiable, Codable {
+    @DocumentID var id: String?  // Firestore DocumentIDを使用
+    var category: [Int] // Firestoreのcategoryフィールド
+    var title: String
+    var content: String // Firestoreのcontentフィールド
+    var imageUrl: [String] // Firestoreのimage_fileフィールド
+    var publicDate: Date // Firestoreのpublic_dateフィールド
+    var accessTotal: Int?  // 集計データは別途追加
+    var likeTotal: Int?    // 同上
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case category
+        case title
+        case content
+        case imageUrl = "image_file"
+        case publicDate = "public_date"
+    }
 }
