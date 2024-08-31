@@ -9,6 +9,7 @@ import SwiftUI
 import FirebaseAuthUI
 import FirebaseGoogleAuthUI
 import FirebaseOAuthUI
+import FirebaseFirestore // これを追加
 
 struct LoginView: UIViewControllerRepresentable {
     @Binding var isLoggedIn: Bool
@@ -46,11 +47,48 @@ struct LoginView: UIViewControllerRepresentable {
         }
         
         func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?) {
-            if error == nil {
-                // ログイン成功時にフラグを更新
-                parent.isLoggedIn = true
+            if let error = error {
+                print("Error during sign in: \(error.localizedDescription)")
+                return
+            }
+            
+            guard let user = authDataResult?.user else { return }
+            parent.isLoggedIn = true
+            
+            let db = Firestore.firestore()
+            let usersRef = db.collection("users").document(user.uid)
+            
+            usersRef.getDocument { (document, error) in
+                if let error = error {
+                    print("Error getting user document: \(error.localizedDescription)")
+                    return
+                }
+                
+                if let document = document, document.exists {
+                    // ユーザーが既に存在する場合は何もしない
+                    print("User already exists in Firestore.")
+                } else {
+                    // ユーザーが存在しない場合、新しいユーザーデータを追加
+                    let userData: [String: Any] = [
+                        "uid": user.uid,
+                        "display_name": user.displayName ?? "",
+                        "email": user.email ?? "",
+                        "phone_number": user.phoneNumber ?? "",
+                        "provider_data": user.providerData.map { $0.providerID }.joined(separator: ", "),
+                        "created_at": Timestamp(date: Date())  // 作成日時
+                    ]
+                    
+                    usersRef.setData(userData) { error in
+                        if let error = error {
+                            print("Error saving user data: \(error.localizedDescription)")
+                        } else {
+                            print("User data added to Firestore successfully.")
+                        }
+                    }
+                }
             }
         }
+
         
         func authPickerViewController(forAuthUI authUI: FUIAuth) -> FUIAuthPickerViewController {
             print("CustomAuthViewController is being used")  // デバッグプリント

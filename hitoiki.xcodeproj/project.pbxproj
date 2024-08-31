@@ -17,7 +17,13 @@
 		772C4D752C567A0100593A46 /* RankingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772C4D742C567A0100593A46 /* RankingView.swift */; };
 		772C4D772C567A0D00593A46 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772C4D762C567A0D00593A46 /* SettingView.swift */; };
 		772C4D792C567A2900593A46 /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772C4D782C567A2900593A46 /* MyPageView.swift */; };
-		772C4D7B2C567A3A00593A46 /* searchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772C4D7A2C567A3A00593A46 /* searchView.swift */; };
+		772C4D7B2C567A3A00593A46 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772C4D7A2C567A3A00593A46 /* SearchView.swift */; };
+		778C22692C7B3FF6006E2FBC /* ArticleRequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778C22682C7B3FF6006E2FBC /* ArticleRequestView.swift */; };
+		778C226B2C7B48AC006E2FBC /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 778C226A2C7B48AC006E2FBC /* FirebaseStorage */; };
+		778C226D2C7B48AC006E2FBC /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 778C226C2C7B48AC006E2FBC /* FirebaseStorageCombine-Community */; };
+		778C22712C7B4B30006E2FBC /* PHPickerViewControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778C22702C7B4B30006E2FBC /* PHPickerViewControllerView.swift */; };
+		778C22732C7B6063006E2FBC /* DeveloperArticleManagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778C22722C7B6063006E2FBC /* DeveloperArticleManagementView.swift */; };
+		778C22752C82BD75006E2FBC /* ArticleEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778C22742C82BD74006E2FBC /* ArticleEditView.swift */; };
 		77A3D92B2C4D1E43009DC42F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A3D92A2C4D1E43009DC42F /* LoginView.swift */; };
 		77F648612C4D1C6A00122EF1 /* hitoikiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F648602C4D1C6A00122EF1 /* hitoikiApp.swift */; };
 		77F648632C4D1C6A00122EF1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F648622C4D1C6A00122EF1 /* ContentView.swift */; };
@@ -48,7 +54,11 @@
 		772C4D742C567A0100593A46 /* RankingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingView.swift; sourceTree = "<group>"; };
 		772C4D762C567A0D00593A46 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		772C4D782C567A2900593A46 /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
-		772C4D7A2C567A3A00593A46 /* searchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = searchView.swift; sourceTree = "<group>"; };
+		772C4D7A2C567A3A00593A46 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		778C22682C7B3FF6006E2FBC /* ArticleRequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleRequestView.swift; sourceTree = "<group>"; };
+		778C22702C7B4B30006E2FBC /* PHPickerViewControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHPickerViewControllerView.swift; sourceTree = "<group>"; };
+		778C22722C7B6063006E2FBC /* DeveloperArticleManagementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperArticleManagementView.swift; sourceTree = "<group>"; };
+		778C22742C82BD74006E2FBC /* ArticleEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleEditView.swift; sourceTree = "<group>"; };
 		77A3D92A2C4D1E43009DC42F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		77F6485D2C4D1C6A00122EF1 /* hitoiki.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hitoiki.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77F648602C4D1C6A00122EF1 /* hitoikiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hitoikiApp.swift; sourceTree = "<group>"; };
@@ -63,9 +73,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				778C226D2C7B48AC006E2FBC /* FirebaseStorageCombine-Community in Frameworks */,
 				77FFA94B2C6925D3006EDB4B /* FirebaseDatabaseSwift in Frameworks */,
 				77FFA9492C6925D3006EDB4B /* FirebaseDatabase in Frameworks */,
 				77F648722C4D1D0400122EF1 /* FirebaseAuth in Frameworks */,
+				778C226B2C7B48AC006E2FBC /* FirebaseStorage in Frameworks */,
 				77F648772C4D1D4A00122EF1 /* FirebaseAuthUI in Frameworks */,
 				77F6487B2C4D1D4A00122EF1 /* FirebaseOAuthUI in Frameworks */,
 				77FFA94D2C6925D3006EDB4B /* FirebaseFirestore in Frameworks */,
@@ -90,7 +102,11 @@
 				772C4D742C567A0100593A46 /* RankingView.swift */,
 				772C4D762C567A0D00593A46 /* SettingView.swift */,
 				772C4D782C567A2900593A46 /* MyPageView.swift */,
-				772C4D7A2C567A3A00593A46 /* searchView.swift */,
+				778C22722C7B6063006E2FBC /* DeveloperArticleManagementView.swift */,
+				778C22702C7B4B30006E2FBC /* PHPickerViewControllerView.swift */,
+				778C22742C82BD74006E2FBC /* ArticleEditView.swift */,
+				772C4D7A2C567A3A00593A46 /* SearchView.swift */,
+				778C22682C7B3FF6006E2FBC /* ArticleRequestView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -170,6 +186,8 @@
 				77FFA94A2C6925D3006EDB4B /* FirebaseDatabaseSwift */,
 				77FFA94C2C6925D3006EDB4B /* FirebaseFirestore */,
 				77FFA94E2C6925D3006EDB4B /* FirebaseFirestoreSwift */,
+				778C226A2C7B48AC006E2FBC /* FirebaseStorage */,
+				778C226C2C7B48AC006E2FBC /* FirebaseStorageCombine-Community */,
 			);
 			productName = hitoiki;
 			productReference = 77F6485D2C4D1C6A00122EF1 /* hitoiki.app */;
@@ -236,14 +254,18 @@
 				772633932C4D2AF30008930E /* MainView.swift in Sources */,
 				772633952C4D35D80008930E /* CustomAuthViewController.swift in Sources */,
 				7726338F2C4D21F40008930E /* SecondView.swift in Sources */,
-				772C4D7B2C567A3A00593A46 /* searchView.swift in Sources */,
+				778C22712C7B4B30006E2FBC /* PHPickerViewControllerView.swift in Sources */,
+				772C4D7B2C567A3A00593A46 /* SearchView.swift in Sources */,
+				778C22732C7B6063006E2FBC /* DeveloperArticleManagementView.swift in Sources */,
 				7726338D2C4D21C90008930E /* AuthenticationManager.swift in Sources */,
 				77F648632C4D1C6A00122EF1 /* ContentView.swift in Sources */,
+				778C22752C82BD75006E2FBC /* ArticleEditView.swift in Sources */,
 				772C4D6D2C54FFDD00593A46 /* NewsListView.swift in Sources */,
 				77F648612C4D1C6A00122EF1 /* hitoikiApp.swift in Sources */,
 				772C4D772C567A0D00593A46 /* SettingView.swift in Sources */,
 				772C4D732C56685200593A46 /* ArticleContentView.swift in Sources */,
 				772C4D752C567A0100593A46 /* RankingView.swift in Sources */,
+				778C22692C7B3FF6006E2FBC /* ArticleRequestView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -478,6 +500,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		778C226A2C7B48AC006E2FBC /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 77F648702C4D1D0400122EF1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+		778C226C2C7B48AC006E2FBC /* FirebaseStorageCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 77F648702C4D1D0400122EF1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseStorageCombine-Community";
+		};
 		77F648712C4D1D0400122EF1 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 77F648702C4D1D0400122EF1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

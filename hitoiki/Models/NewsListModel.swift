@@ -17,6 +17,8 @@ struct NewsItem: Identifiable, Codable {
     var publicDate: Date // Firestoreのpublic_dateフィールド
     var accessTotal: Int?  // 集計データは別途追加
     var likeTotal: Int?    // 同上
+    var createdUserID: String
+    
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -25,5 +27,6 @@ struct NewsItem: Identifiable, Codable {
         case content
         case imageUrl = "image_file"
         case publicDate = "public_date"
+        case createdUserID = "created_user_id"
     }
 }
